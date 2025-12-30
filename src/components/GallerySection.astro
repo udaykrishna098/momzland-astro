@@ -1,0 +1,202 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+---
+
+<section id="gallery" class="py-20 bg-brand-light">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12 reveal-up">
+            <p class="text-orange-700 font-bold uppercase tracking-wider mb-2">
+                Moments & Meals
+            </p>
+            <h2 class="text-3xl md:text-5xl font-bold text-brand-dark mb-4">
+                Our Gallery
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                A glimpse into our ambiance and the delicious food we serve.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+            <div
+                class="gallery-item col-span-2 row-span-2 relative group reveal-scale"
+            >
+                <Image
+                    src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"
+                    alt="Food Court"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+                <div class="gallery-overlay">
+                    <span class="text-white font-bold text-lg"
+                        >Delicious Spreads</span
+                    >
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="gallery-item reveal-scale">
+                <Image
+                    src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80"
+                    alt="Pizza"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+            </div>
+
+            <!-- Item 3 -->
+            <div class="gallery-item reveal-scale">
+                <Image
+                    src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80"
+                    alt="Dessert"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+            </div>
+
+            <!-- Item 4: Tall -->
+            <div class="gallery-item row-span-2 reveal-scale">
+                <Image
+                    src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=800&q=80"
+                    alt="Salad"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+            </div>
+
+            <!-- Item 5 -->
+            <div class="gallery-item reveal-scale">
+                <Image
+                    src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=800&q=80"
+                    alt="Sandwich"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+            </div>
+
+            <!-- Item 6 -->
+            <div class="gallery-item reveal-scale">
+                <Image
+                    src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=800&q=80"
+                    alt="Pancakes"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+            </div>
+
+            <!-- Item 7: Wide -->
+            <div class="gallery-item col-span-2 reveal-scale">
+                <Image
+                    src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"
+                    alt="Steak"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+            </div>
+
+            <!-- Item 8 -->
+            <div class="gallery-item reveal-scale">
+                <Image
+                    src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=800&q=80"
+                    alt="Sushi"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+                <div class="gallery-overlay">
+                    <span class="text-white font-bold text-lg"
+                        >World Cuisines</span
+                    >
+                </div>
+            </div>
+
+            <!-- Item 9 -->
+            <div class="gallery-item reveal-scale">
+                <Image
+                    src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80"
+                    alt="Juice"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+            </div>
+
+            <!-- Item 10: Large -->
+            <div class="gallery-item col-span-2 row-span-2 reveal-scale">
+                <Image
+                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+                    alt="Interior"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+                <div class="gallery-overlay">
+                    <span class="text-white font-bold text-lg"
+                        >Great Ambience</span
+                    >
+                </div>
+            </div>
+
+            <!-- Item 11 -->
+            <div class="gallery-item reveal-scale">
+                <Image
+                    src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
+                    alt="Dish"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+            </div>
+
+            <!-- Item 12 -->
+            <div class="gallery-item reveal-scale">
+                <Image
+                    src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80"
+                    alt="Pasta"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+            </div>
+            <!-- Item 13 -->
+            <div class="gallery-item reveal-scale">
+                <Image
+                    src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80"
+                    alt="Drink"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+            </div>
+            <!-- Item 14 -->
+            <div class="gallery-item reveal-scale">
+                <Image
+                    src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=800&q=80"
+                    alt="Pasta"
+                    width={800}
+                    height={600}
+                    class="w-full h-full object-cover"
+                />
+            </div>
+        </div>
+
+        <div class="text-center mt-12 reveal-up">
+            <a
+                href="https://wa.me/919876543210"
+                class="inline-flex items-center justify-center gap-2 bg-brand-dark hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-full transition-all"
+            >
+                Visit Us Today <Icon
+                    name="fa6-solid:location-dot"
+                    class="text-sm"
+                />
+            </a>
+        </div>
+    </div>
+</section>

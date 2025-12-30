@@ -1,0 +1,65 @@
+<div
+    id="offer-bar"
+    class="fixed top-0 left-0 w-full h-10 z-[110] bg-brand-orange text-white flex items-center justify-center shadow-md overflow-hidden"
+    role="region"
+    aria-label="Special Offers"
+>
+    <div
+        class="relative w-full max-w-3xl text-center h-full"
+        aria-live="polite"
+    >
+        <p
+            class="offer-text absolute w-full top-1/2 -translate-y-1/2 opacity-0 font-medium text-sm px-4"
+        >
+            🌟 Special Offer: Buy 2 Shawarmas & Get 1 Lime Juice FREE!
+        </p>
+        <p
+            class="offer-text absolute w-full top-1/2 -translate-y-1/2 opacity-0 font-medium text-sm px-4"
+        >
+            🍔 Try our new Spicy Dragon Burger - It's Fire! 🔥
+        </p>
+        <p
+            class="offer-text absolute w-full top-1/2 -translate-y-1/2 opacity-0 font-medium text-sm px-4"
+        >
+            🕒 We are open until 2:00 AM every night!
+        </p>
+        <p
+            class="offer-text absolute w-full top-1/2 -translate-y-1/2 opacity-0 font-medium text-sm px-4"
+        >
+            🥡 Takeaway Available - Delicious Food to Go!
+        </p>
+    </div>
+</div>
+
+<script>
+    import { animate, set } from "animejs";
+
+    const offers = document.querySelectorAll(".offer-text");
+    if (offers.length > 0) {
+        let currentOffer = 0;
+
+        set(offers, { opacity: 0, translateY: 10 });
+        set(offers[0], { opacity: 1, translateY: 0 });
+
+        setInterval(() => {
+            const next = (currentOffer + 1) % offers.length;
+
+            animate(offers[currentOffer], {
+                opacity: 0,
+                translateY: -10,
+                duration: 500,
+                ease: "inOutQuad",
+            });
+
+            animate(offers[next], {
+                opacity: [0, 1],
+                translateY: [10, 0],
+                duration: 500,
+                delay: 100,
+                ease: "inOutQuad",
+            });
+
+            currentOffer = next;
+        }, 4000);
+    }
+</script>

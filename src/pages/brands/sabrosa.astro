@@ -1,0 +1,255 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import heroImage from "../../assets/outlets/sebrosa-3d.jpg";
+
+const brand = {
+    name: "Sabrosa",
+    tagline: "Order Happiness",
+    description:
+        "Discover a world of exquisite flavors where every dish tells a unique story. Authentic recipes with modern innovation.",
+    whatsapp: "919876543210",
+    menu: [
+        {
+            category: "Burgers",
+            items: [
+                { name: "Zinger Burger", price: "₹190", desc: "Crispy fillet" },
+                { name: "Chicken Wrap", price: "₹110", desc: "Grilled wrap" },
+            ],
+        },
+        {
+            category: "Sides",
+            items: [
+                { name: "Cheese Fries", price: "₹130", desc: "Loaded cheese" },
+                { name: "Blue Lagoon", price: "₹90", desc: "Mocktail" },
+            ],
+        },
+    ],
+    gallery: [
+        "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=600&q=80",
+    ],
+};
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    name: "Sabrosa",
+    parentOrganization: {
+        "@type": "FoodCourt",
+        name: "Momzland Food Court",
+    },
+    image: "https://momzland.co.in/assets/outlets/sebrosa-3d.jpg",
+    description: brand.description,
+    address: {
+        "@type": "PostalAddress",
+        streetAddress: "Momzland Food Court, Near University Road",
+        addressLocality: "Ramanattukara",
+        addressRegion: "Kerala",
+        postalCode: "673633",
+        addressCountry: "IN",
+    },
+    geo: {
+        "@type": "GeoCoordinates",
+        latitude: 11.1786,
+        longitude: 75.8306,
+    },
+    url: "https://momzland.co.in/brands/sabrosa",
+    telephone: "+91" + brand.whatsapp,
+    servesCuisine: "Burgers, Continental, Fast Food",
+    priceRange: "₹₹",
+    menu: "https://momzland.co.in/brands/sabrosa",
+});
+---
+
+<Layout
+    title="Sabrosa | Best Burgers in Ramanattukara | Momzland"
+    description="Sabrosa at Momzland Food Court. Taste the best Zinger Burgers, Chicken Wraps, and Continental dishes in Ramanattukara."
+    keywords="Sabrosa, Burgers Ramanattukara, Continental food Ramanattukara, Best Burger Spot, Momzland Food Court"
+    schema={schema}
+    showNavbar={false}
+    showFooter={false}
+>
+    <!-- Custom Back Button -->
+    <a
+        href="/outlet"
+        class="fixed top-6 left-6 z-50 w-12 h-12 bg-white/90 backdrop-blur text-[#C2185B] rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform border-2 border-[#C2185B]"
+    >
+        <i class="fa-solid fa-arrow-left text-xl"></i>
+    </a>
+
+    <!-- Chic / Continental Theme -->
+    <div class="bg-white text-[#880E4F] font-sans selection:bg-[#FCE4EC]">
+        <!-- Fullscreen Hero Image centric -->
+        <header class="h-[90vh] relative flex items-center justify-center p-4">
+            <div
+                class="absolute inset-20 border border-[#F48FB1]/30 rounded-[100px] z-0 hidden md:block animate-pulse-slow"
+            >
+            </div>
+
+            <div class="absolute inset-0 z-0">
+                <Image
+                    src={heroImage}
+                    class="w-full h-full object-cover object-center opacity-90"
+                    alt="Sabrosa Hero"
+                    fetchpriority="high"
+                />
+                <div class="absolute inset-0 bg-white/60 backdrop-blur-sm">
+                </div>
+            </div>
+
+            <div class="relative z-10 text-center space-y-6 max-w-2xl">
+                <span
+                    class="inline-block px-4 py-1 rounded-full border border-[#C2185B] text-[#C2185B] text-xs font-bold uppercase tracking-widest bg-white"
+                >
+                    {brand.tagline}
+                </span>
+                <h1
+                    class="text-7xl md:text-9xl font-bold tracking-tighter text-[#C2185B] drop-shadow-sm font-serif"
+                >
+                    Sabrosa.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-700 italic font-light">
+                    {brand.description}
+                </p>
+            </div>
+        </header>
+
+        <!-- Order Section -->
+        <section class="py-24 bg-[#FDFAFC] relative">
+            <div class="container mx-auto px-4 max-w-4xl text-center">
+                <div
+                    class="bg-white p-12 md:p-20 rounded-3xl shadow-2xl border border-pink-100 relative overflow-hidden group"
+                >
+                    <div
+                        class="absolute -top-24 -left-24 w-64 h-64 bg-[#FCE4EC] rounded-full opacity-50 blur-3xl group-hover:bg-[#F8BBD0] transition-colors duration-700"
+                    >
+                    </div>
+                    <div
+                        class="absolute -bottom-24 -right-24 w-64 h-64 bg-[#FCE4EC] rounded-full opacity-50 blur-3xl group-hover:bg-[#F8BBD0] transition-colors duration-700"
+                    >
+                    </div>
+
+                    <h2
+                        class="text-5xl md:text-6xl font-serif font-bold text-[#C2185B] mb-8 relative z-10 italic"
+                    >
+                        Indulge Yourself
+                    </h2>
+                    <p
+                        class="text-xl text-gray-600 mb-12 font-light max-w-2xl mx-auto relative z-10"
+                    >
+                        Experience the exquisite flavors of Sabrosa from the
+                        comfort of your home.
+                    </p>
+
+                    <div class="relative z-10">
+                        <a
+                            href={`https://wa.me/${brand.whatsapp}`}
+                            target="_blank"
+                            class="inline-flex items-center justify-center px-12 py-6 bg-[#C2185B] text-white text-xl font-bold rounded-full shadow-xl hover:shadow-[#C2185B]/30 hover:scale-105 transition-all duration-300 group/btn overflow-hidden relative"
+                        >
+                            <span
+                                class="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300"
+                            ></span>
+                            <span class="relative flex items-center gap-3">
+                                Order Online <i
+                                    class="fa-solid fa-utensils text-lg"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-3 h-64 md:h-96">
+            {
+                brand.gallery.map((img) => (
+                    <div class="relative group overflow-hidden">
+                        <img
+                            src={img}
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            alt="Food"
+                        />
+                        <div class="absolute inset-0 bg-[#C2185B]/0 group-hover:bg-[#C2185B]/20 transition-colors" />
+                    </div>
+                ))
+            }
+        </div>
+
+        <!-- Brand Footer -->
+        <footer class="bg-[#C2185B] text-white py-16 px-4 mt-20">
+            <div
+                class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl"
+            >
+                <!-- Location -->
+                <div>
+                    <h3 class="text-2xl font-serif italic mb-6">Find Us</h3>
+                    <p class="leading-relaxed mb-4">
+                        Level 2, Momzland Food Court<br />
+                        City Center Mall<br />
+                        Mangalore, Karnataka 575001
+                    </p>
+                    <a
+                        href="https://maps.google.com"
+                        target="_blank"
+                        class="text-white hover:text-pink-200 transition-colors flex items-center gap-2"
+                    >
+                        <i class="fa-solid fa-map-location-dot"></i> Get Directions
+                    </a>
+                </div>
+
+                <!-- Hours & Contact -->
+                <div>
+                    <h3 class="text-2xl font-serif italic mb-6">Open Hours</h3>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex justify-between">
+                            <span>Mon - Sun:</span>
+                            <span>10:00 AM - 11:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="pt-4 border-t border-white/20">
+                        <p class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-phone"></i> +{brand.whatsapp}
+                        </p>
+                        <p class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope"></i> hello@sabrosa.com
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Concept -->
+                <div class="text-center md:text-right">
+                    <h3 class="text-4xl font-serif italic mb-4">Sabrosa.</h3>
+                    <p class="text-sm opacity-80 mb-6">{brand.tagline}</p>
+                    <div class="flex justify-center md:justify-end gap-4">
+                        <a
+                            href="#"
+                            class="w-10 h-10 rounded-full bg-white text-[#C2185B] flex items-center justify-center hover:scale-110 transition-transform"
+                            ><i class="fa-brands fa-instagram"></i></a
+                        >
+                        <a
+                            href="#"
+                            class="w-10 h-10 rounded-full bg-white text-[#C2185B] flex items-center justify-center hover:scale-110 transition-transform"
+                            ><i class="fa-brands fa-facebook-f"></i></a
+                        >
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</Layout>
+
+<style>
+    @keyframes spin-slow {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    .animate-spin-slow {
+        animation: spin-slow 20s linear infinite;
+    }
+</style>

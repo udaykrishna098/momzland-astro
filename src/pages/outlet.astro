@@ -1,0 +1,346 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+---
+
+<Layout
+    title="Outlets | Momzland Food Court"
+    description="Discover the 7 amazing food brands and outlets at Momzland Food Court, Ramanattukara."
+    activePage="outlet"
+>
+    <!-- Page Header -->
+    <header
+        class="pt-32 pb-16 bg-gradient-to-r from-brand-orange to-brand-pink text-white text-center px-4"
+    >
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-md">
+            Our Food Partners
+        </h1>
+        <p class="text-white/90 text-lg max-w-2xl mx-auto font-medium">
+            Discover the 7 amazing brands under one roof at Momzland.
+        </p>
+    </header>
+
+    <!-- Outlets Grid -->
+    <section class="py-20 bg-stone-50 min-h-[60vh]">
+        <div class="container mx-auto px-4">
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+            >
+                <!-- Mr. Chai -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col"
+                >
+                    <div class="relative h-56 overflow-hidden">
+                        <Image
+                            src="/assets/outlets/mr-chai-3d.jpg"
+                            alt="Mr. Chai"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            width={800}
+                            height={600}
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80"
+                        >
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-2xl font-bold">Mr. Chai</h3>
+                            <div
+                                class="flex items-center gap-2 text-sm text-yellow-400 mt-1"
+                            >
+                                <i class="fas fa-star" aria-hidden="true"></i> 4.9
+                                <span class="text-white/80">(Chai Lovers)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-4">
+                            <span
+                                class="bg-orange-100 text-brand-orange text-xs font-bold px-2 py-1 rounded uppercase tracking-wide"
+                                >Tea & Snacks</span
+                            >
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6 flex-1">
+                            The True Soul of Chai. From strong kadak chai to
+                            aromatic masala blends.
+                        </p>
+                        <a
+                            href="/brands/mr-chai"
+                            class="block w-full text-center border-2 border-brand-dark text-brand-dark font-bold py-2 rounded-lg hover:bg-brand-dark hover:text-white transition-colors"
+                            >View Menu</a
+                        >
+                    </div>
+                </div>
+
+                <!-- Sign Laban -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col"
+                >
+                    <div class="relative h-56 overflow-hidden">
+                        <Image
+                            src="/assets/outlets/sign-laban.jpg"
+                            alt="Sign Laban"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            width={800}
+                            height={600}
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80"
+                        >
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-2xl font-bold">Sign Laban</h3>
+                            <div
+                                class="flex items-center gap-2 text-sm text-yellow-400 mt-1"
+                            >
+                                <i class="fas fa-star" aria-hidden="true"></i> 4.8
+                                <span class="text-white/80">(Authentic)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-4">
+                            <span
+                                class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wide"
+                                >Desserts</span
+                            >
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6 flex-1">
+                            Tradition meets indulgence through authentic
+                            Egyptian desserts.
+                        </p>
+                        <a
+                            href="/brands/sign-laban"
+                            class="block w-full text-center border-2 border-brand-dark text-brand-dark font-bold py-2 rounded-lg hover:bg-brand-dark hover:text-white transition-colors"
+                            >View Menu</a
+                        >
+                    </div>
+                </div>
+
+                <!-- Stream & Fry -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col"
+                >
+                    <div class="relative h-56 overflow-hidden">
+                        <Image
+                            src="/assets/outlets/stream-and-fry-3d.jpg"
+                            alt="Stream & Fry"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            width={800}
+                            height={600}
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80"
+                        >
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-2xl font-bold">Stream & Fry</h3>
+                            <div
+                                class="flex items-center gap-2 text-sm text-yellow-400 mt-1"
+                            >
+                                <i class="fas fa-star" aria-hidden="true"></i> 4.5
+                                <span class="text-white/80">(Tasty)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-4">
+                            <span
+                                class="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wide"
+                                >Asian & Fried</span
+                            >
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6 flex-1">
+                            Culinary artistry where flavor meets tradition.
+                            Momos, fries, and more.
+                        </p>
+                        <a
+                            href="/brands/stream-and-fry"
+                            class="block w-full text-center border-2 border-brand-dark text-brand-dark font-bold py-2 rounded-lg hover:bg-brand-dark hover:text-white transition-colors"
+                            >View Menu</a
+                        >
+                    </div>
+                </div>
+
+                <!-- Sabrosa -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col"
+                >
+                    <div class="relative h-56 overflow-hidden">
+                        <Image
+                            src="/assets/outlets/sebrosa-3d.jpg"
+                            alt="Sabrosa"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            width={800}
+                            height={600}
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80"
+                        >
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-2xl font-bold">Sabrosa</h3>
+                            <div
+                                class="flex items-center gap-2 text-sm text-yellow-400 mt-1"
+                            >
+                                <i class="fas fa-star" aria-hidden="true"></i> 4.8
+                                <span class="text-white/80">(Top Rated)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-4">
+                            <span
+                                class="bg-orange-100 text-brand-orange text-xs font-bold px-2 py-1 rounded uppercase tracking-wide"
+                                >Continental</span
+                            >
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6 flex-1">
+                            A world of exquisite flavors where every dish tells
+                            a unique story.
+                        </p>
+                        <a
+                            href="/brands/sabrosa"
+                            class="block w-full text-center border-2 border-brand-dark text-brand-dark font-bold py-2 rounded-lg hover:bg-brand-dark hover:text-white transition-colors"
+                            >View Menu</a
+                        >
+                    </div>
+                </div>
+
+                <!-- Grill Spot -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col"
+                >
+                    <div class="relative h-56 overflow-hidden">
+                        <Image
+                            src="/assets/outlets/grill-spot-3d.jpg"
+                            alt="Grill Spot"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            width={800}
+                            height={600}
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80"
+                        >
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-2xl font-bold">Grill Spot</h3>
+                            <div
+                                class="flex items-center gap-2 text-sm text-yellow-400 mt-1"
+                            >
+                                <i class="fas fa-star" aria-hidden="true"></i> 4.7
+                                <span class="text-white/80">(Smoky)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-4">
+                            <span
+                                class="bg-gray-100 text-gray-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wide"
+                                >BBQ & Grill</span
+                            >
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6 flex-1">
+                            Savor the smoky perfection of our signature grilled
+                            delicacies.
+                        </p>
+                        <a
+                            href="/brands/grill-spot"
+                            class="block w-full text-center border-2 border-brand-dark text-brand-dark font-bold py-2 rounded-lg hover:bg-brand-dark hover:text-white transition-colors"
+                            >View Menu</a
+                        >
+                    </div>
+                </div>
+
+                <!-- Galgappe -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col"
+                >
+                    <div class="relative h-56 overflow-hidden">
+                        <Image
+                            src="/assets/outlets/galgappe-3d.jpg"
+                            alt="Galgappe"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            width={800}
+                            height={600}
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80"
+                        >
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-2xl font-bold">Galgappe</h3>
+                            <div
+                                class="flex items-center gap-2 text-sm text-yellow-400 mt-1"
+                            >
+                                <i class="fas fa-star" aria-hidden="true"></i> 4.6
+                                <span class="text-white/80">(Street Food)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-4">
+                            <span
+                                class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded uppercase tracking-wide"
+                                >Chaat</span
+                            >
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6 flex-1">
+                            Vibrant world of street food favorites reimagined.
+                            Hygienic and premium.
+                        </p>
+                        <a
+                            href="/brands/galgappe"
+                            class="block w-full text-center border-2 border-brand-dark text-brand-dark font-bold py-2 rounded-lg hover:bg-brand-dark hover:text-white transition-colors"
+                            >View Menu</a
+                        >
+                    </div>
+                </div>
+
+                <!-- Lilpops -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col"
+                >
+                    <div class="relative h-56 overflow-hidden">
+                        <Image
+                            src="/assets/outlets/lilpop-3d.jpg"
+                            alt="Lilpops"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            width={800}
+                            height={600}
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80"
+                        >
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-2xl font-bold">Lilpops</h3>
+                            <div
+                                class="flex items-center gap-2 text-sm text-yellow-400 mt-1"
+                            >
+                                <i class="fas fa-star" aria-hidden="true"></i> 4.9
+                                <span class="text-white/80">(Kids Fav)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-4">
+                            <span
+                                class="bg-pink-100 text-brand-pink text-xs font-bold px-2 py-1 rounded uppercase tracking-wide"
+                                >Ice Cream</span
+                            >
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6 flex-1">
+                            Cool down with our delightful range of frozen
+                            treats.
+                        </p>
+                        <a
+                            href="/brands/lilpops"
+                            class="block w-full text-center border-2 border-brand-dark text-brand-dark font-bold py-2 rounded-lg hover:bg-brand-dark hover:text-white transition-colors"
+                            >View Menu</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

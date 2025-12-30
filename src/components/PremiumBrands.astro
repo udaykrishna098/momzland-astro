@@ -1,0 +1,226 @@
+---
+import { Image } from "astro:assets";
+import mrChaiImg from "../assets/outlets/mr-chai-3d.jpg";
+import signLabanImg from "../assets/outlets/sign-laban.jpg";
+import streamFryImg from "../assets/outlets/stream-and-fry-3d.jpg";
+import sabrosaImg from "../assets/outlets/sebrosa-3d.jpg";
+import grillSpotImg from "../assets/outlets/grill-spot-3d.jpg";
+import galgappeImg from "../assets/outlets/galgappe-3d.jpg";
+import lilpopsImg from "../assets/outlets/lilpop-3d.jpg";
+
+const brands = [
+    {
+
+        name: "Mr. Chai",
+        slug: "mr-chai",
+        logo: mrChaiImg,
+        desc: "Mr. Chai celebrates the true soul of chai, bringing together classic and modern flavors in every cup. From strong kadak chai to aromatic masala blends, each sip is freshly brewed with premium ingredients.",
+        color: "from-orange-100 to-orange-50",
+        accent: "text-orange-600"
+    },
+    {
+        name: "Sign Laban",
+        slug: "sign-laban",
+        logo: signLabanImg,
+        desc: "At Sign Laban, tradition meets indulgence through authentic Egyptian desserts crafted with the finest ingredients. Born from a legacy that began in 1940, our journey now delights Kerala.",
+        color: "from-blue-100 to-blue-50",
+        accent: "text-blue-600"
+    },
+    {
+        name: "Stream & Fry",
+        slug: "stream-and-fry",
+        logo: streamFryImg,
+        desc: "Experience the culinary artistry where flavor meets tradition. Our chefs painstakingly select the freshest local ingredients to craft dishes that tantalize your taste buds and warm your soul.",
+        color: "from-red-100 to-red-50",
+        accent: "text-red-600"
+    },
+    {
+        name: "Sabrosa",
+        slug: "sabrosa",
+        logo: sabrosaImg,
+        desc: "Discover a world of exquisite flavors where every dish tells a unique story. We blend authentic recipes with modern innovation to serve you warmth on a plate consistent quality.",
+        color: "from-yellow-100 to-yellow-50",
+        accent: "text-yellow-600"
+    },
+    {
+        name: "Grill Spot",
+        slug: "grill-spot",
+        logo: grillSpotImg,
+        desc: "Savor the smoky perfection of our signature grilled delicacies, marinated to perfection and cooked over open flames. We believe in the power of simple, honest ingredients transformed by fire.",
+        color: "from-stone-200 to-stone-100",
+        accent: "text-stone-700"
+    },
+    {
+        name: "Galgappe",
+        slug: "galgappe",
+        logo: galgappeImg,
+        desc: "Step into the vibrant world of street food favorites reimagined. We capture the bustling energy of the streets and bring it to your plate with hygiene and premium taste.",
+        color: "from-green-100 to-green-50",
+        accent: "text-green-600"
+    },
+    {
+        name: "Lilpops",
+        slug: "lilpops",
+        logo: lilpopsImg,
+        desc: "Cool down with our delightful range of frozen treats that bring out the inner child in you. Handcrafted with love using real fruits and creamy dairy, our pops and scoops are the perfect antidote.",
+        color: "from-pink-100 to-pink-50",
+        accent: "text-pink-600"
+    },
+];
+---
+
+<section id="premium-brands" class="relative bg-neutral-950">
+    
+    <!-- Section Header (Scrolls away) -->
+    <div class="py-32 text-center bg-neutral-950 sticky top-0 z-0">
+        <h2 class="text-4xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+            Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-pink">Outlets</span>
+        </h2>
+        <p class="text-gray-400 max-w-xl mx-auto text-lg md:text-2xl font-light">
+            Scroll to explore our galaxy of flavors.
+        </p>
+        <div class="mt-12 animate-bounce">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- Sticky Stack Wrapper -->
+    <div class="relative pb-20">
+        {brands.map((brand, index) => (
+            <div data-index={index} class="brand-wrapper sticky top-0 h-screen flex items-center justify-center overflow-hidden px-4">
+                
+                <!-- Container for Split Cards -->
+                <div class="relative w-full max-w-6xl h-[55vh] md:h-[60vh] flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
+
+
+                    <!-- Image Card -->
+                    <div class="brand-image-card w-full md:w-1/2 h-[45%] md:h-full relative rounded-[2rem] overflow-hidden shadow-2xl group cursor-pointer bg-white">
+                         <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10"></div>
+                         <Image 
+                            src={brand.logo} 
+                            alt={brand.name} 
+                            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                            width={800}
+                        />
+                    </div>
+
+                    <!-- Content Card -->
+                    <div class={`brand-content-card w-full md:w-1/2 h-[55%] md:h-full rounded-[2rem] shadow-2xl overflow-hidden flex flex-col justify-center bg-white relative z-10`}>
+                        <div class={`absolute inset-0 bg-gradient-to-br ${brand.color} bg-opacity-20`}></div>
+                        <div class="relative p-8 md:p-12 h-full flex flex-col justify-center card-content">
+                            {/* <h3 class="text-3xl md:text-5xl font-black text-brand-dark mb-4 leading-tight">{brand.name}</h3> */}
+                            <div class="w-16 h-1.5 bg-brand-orange mb-6 rounded-full"></div>
+                            <p class="text-gray-700 text-base md:text-lg leading-relaxed mb-8 font-medium">
+                                {brand.desc}
+                            </p>
+                            <a href={`/brands/${brand.slug}`} class="group inline-flex items-center gap-2 text-brand-dark font-bold text-lg hover:text-brand-orange transition-colors">
+                                <span>View Menu</span>
+                                <div class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center group-hover:bg-brand-orange group-hover:text-white transition-all">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        ))}
+    </div>
+</section>
+
+<script>
+    import { createTimeline, set, stagger } from "animejs";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // 1. Initial Setup: Hide elements so we can reveal them
+        const wrappers = document.querySelectorAll('.brand-wrapper');
+        
+        wrappers.forEach(wrapper => {
+            const imageCard = wrapper.querySelector('.brand-image-card');
+            const contentCard = wrapper.querySelector('.brand-content-card');
+            const contentChildren = wrapper.querySelectorAll('.card-content > *'); // h3, div, p, a
+            const numberBg = wrapper.querySelector('.brand-number-bg');
+
+            if(imageCard) set(imageCard, { opacity: 0, scale: 0.9, translateX: -50 });
+            if(contentCard) set(contentCard, { opacity: 0, scale: 0.9, translateX: 50 });
+            if(contentChildren.length) set(contentChildren, { opacity: 0, translateY: 20 });
+            if(numberBg) set(numberBg, { opacity: 0, translateX: 50 });
+        });
+
+        // 2. Intersection Observer for triggering animations
+        const observerOptions = {
+            threshold: 0.25, // Trigger when 25% of the item is visible
+            rootMargin: "-10% 0px -10% 0px" // Shrink the hit area slightly to avoid misfires
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                   const wrapper = entry.target;
+                   
+                   if (wrapper.classList.contains('animated-in')) return;
+                   wrapper.classList.add('animated-in');
+
+                   const imageCard = wrapper.querySelector('.brand-image-card');
+                   const contentCard = wrapper.querySelector('.brand-content-card');
+                   const contentChildren = wrapper.querySelectorAll('.card-content > *');
+                   const numberBg = wrapper.querySelector('.brand-number-bg');
+
+                   // Create a master timeline for this card
+                   const tl = createTimeline({
+                       defaults: {
+                           ease: 'outExpo',
+                       }
+                   });
+
+                   // Animate Background Number
+                   if(numberBg) {
+                       tl.add(numberBg, {
+                           opacity: [0, 0.4],
+                           translateX: [50, 0],
+                           duration: 1500,
+                       }, 0);
+                   }
+
+                   // Animate Image Card (Left side)
+                   if(imageCard) {
+                       tl.add(imageCard, {
+                           opacity: [0, 1],
+                           scale: [0.9, 1],
+                           translateX: [-50, 0],
+                           duration: 1200,
+                       }, 100);
+                   }
+
+                   // Animate Content Card (Right side)
+                   if(contentCard) {
+                       tl.add(contentCard, {
+                           opacity: [0, 1],
+                           scale: [0.9, 1],
+                           translateX: [50, 0],
+                           duration: 1200,
+                       }, 200); // Slight delay after image
+                   }
+
+                   // Stagger Text Content inside the card
+                   if(contentChildren.length) {
+                       tl.add(contentChildren, {
+                           opacity: [0, 1],
+                           translateY: [20, 0],
+                           duration: 800,
+                           delay: stagger(100), // 100ms between each element
+                       }, 600); // Start halfway through the card appearing
+                   }
+                   
+                   observer.unobserve(wrapper);
+                }
+            });
+        }, observerOptions);
+
+        wrappers.forEach(wrapper => {
+            observer.observe(wrapper);
+        });
+    });
+</script>

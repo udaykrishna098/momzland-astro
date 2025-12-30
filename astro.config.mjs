@@ -1,5 +1,20 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
-export default defineConfig({});
+import tailwindcss from '@tailwindcss/vite';
+
+import sitemap from '@astrojs/sitemap';
+import icon from "astro-icon";
+
+export default defineConfig({
+  site: 'https://momzland.co.in',
+  vite: {
+    plugins: [tailwindcss()]
+  },
+
+  integrations: [sitemap(), icon()],
+
+  image: {
+    domains: ["images.unsplash.com", "images.pexels.com"]
+  }
+});

@@ -1,0 +1,202 @@
+---
+interface Props {
+    activePage?: "home" | "about" | "outlet";
+}
+
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+const { activePage } = Astro.props;
+
+const linkClass = (page: string) =>
+    activePage === page
+        ? "text-brand-orange transition-colors font-medium whitespace-nowrap"
+        : "text-white hover:text-brand-orange transition-colors font-medium whitespace-nowrap";
+
+const mobileLinkClass = (page: string) =>
+    activePage === page
+        ? "text-2xl text-brand-orange font-medium mobile-link"
+        : "text-2xl text-white font-medium hover:text-brand-orange mobile-link";
+---
+
+<nav
+    id="navbar"
+    class="fixed w-full z-[100] transition-all duration-300 py-4 bg-transparent"
+    aria-label="Main Navigation"
+>
+    <div class="container mx-auto px-4 lg:px-6">
+        <div class="flex justify-between items-center">
+            <a
+                href="/"
+                class="flex items-center gap-2 shrink-0"
+                aria-label="Momzland Home"
+            >
+                <Image
+                    src="/logo.jpg"
+                    alt="Momzland Logo"
+                    class="h-12 w-auto rounded-full border-2 border-white/20"
+                    width={48}
+                    height={48}
+                />
+            </a>
+
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="/" class={linkClass("home")} aria-label="Home">Home</a>
+                <a
+                    href="/about"
+                    class={linkClass("about")}
+                    aria-label="About Us">About</a
+                >
+                <a
+                    href="/outlet"
+                    class={linkClass("outlet")}
+                    aria-label="Our Outlets">Outlets</a
+                >
+                <a
+                    href="/#gallery"
+                    class="text-white hover:text-brand-orange transition-colors font-medium whitespace-nowrap"
+                    aria-label="View Gallery">Gallery</a
+                >
+                <a
+                    href="/#location"
+                    class="text-white hover:text-brand-orange transition-colors font-medium whitespace-nowrap"
+                    aria-label="View Location">Location</a
+                >
+                <a
+                    href="https://wa.me/918971746810"
+                    target="_blank"
+                    class="bg-gradient-to-r from-brand-orange to-brand-pink hover:from-orange-600 hover:to-pink-600 text-white px-6 py-2 rounded-full font-semibold transition-all transform hover:scale-105 flex items-center gap-2 shadow-lg border border-white/10 whitespace-nowrap"
+                    aria-label="Order via WhatsApp"
+                >
+                    <Icon name="fa-brands:whatsapp" class="text-xl" /> Contact
+                </a>
+            </div>
+
+            <button
+                id="mobile-menu-btn"
+                class="lg:hidden text-white text-2xl focus:outline-none z-[100] transition-transform duration-300"
+                aria-label="Toggle Mobile Menu"
+            >
+                <div id="mobile-menu-icon">
+                    <Icon name="fa6-solid:bars" class="block menu-icon-bars" />
+                    <Icon
+                        name="fa6-solid:xmark"
+                        class="hidden menu-icon-close"
+                    />
+                </div>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div
+    id="mobile-menu"
+    class="fixed inset-0 bg-brand-dark/95 transform translate-x-full flex flex-col items-center justify-center space-y-8 lg:hidden z-[90] pt-32"
+>
+    <a href="/" class={mobileLinkClass("home")}>Home</a>
+    <a href="/about" class={mobileLinkClass("about")}>About</a>
+    <a href="/outlet" class={mobileLinkClass("outlet")}>Outlets</a>
+    <a
+        href="/#gallery"
+        class="text-2xl text-white font-medium hover:text-brand-orange mobile-link"
+        >Gallery</a
+    >
+    <a
+        href="/#location"
+        class="text-2xl text-white font-medium hover:text-brand-orange mobile-link"
+        >Location</a
+    >
+    <a
+        href="https://wa.me/919876543210"
+        target="_blank"
+        class="bg-gradient-to-r from-brand-orange to-brand-pink text-white px-8 py-3 rounded-full text-xl font-bold shadow-lg"
+    >
+        Order via WhatsApp
+    </a>
+</div>
+
+<script>
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const navbar = document.getElementById("navbar");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        if (!mobileMenuBtn || !mobileMenu || !navbar) return;
+
+        isMenuOpen = !isMenuOpen;
+        mobileMenu.classList.toggle("translate-x-full");
+        document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
+
+        // Toggle Icon
+        const barsIcon = mobileMenuBtn.querySelector(".menu-icon-bars");
+        const closeIcon = mobileMenuBtn.querySelector(".menu-icon-close");
+
+        if (barsIcon && closeIcon) {
+            if (isMenuOpen) {
+                barsIcon.classList.add("hidden");
+                barsIcon.classList.remove("block");
+                closeIcon.classList.remove("hidden");
+                closeIcon.classList.add("block");
+                navbar.classList.add("bg-black/90", "backdrop-blur-md");
+            } else {
+                barsIcon.classList.remove("hidden");
+                barsIcon.classList.add("block");
+                closeIcon.classList.add("hidden");
+                closeIcon.classList.remove("block");
+                // Revert navbar state based on scroll
+                if (window.scrollY <= 50) {
+                    navbar.classList.remove("bg-black/90", "backdrop-blur-md");
+                }
+            }
+        }
+    }
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener("click", toggleMenu);
+    }
+    mobileLinks.forEach((link) => link.addEventListener("click", toggleMenu));
+
+    // Prevent initial load animation on mobile menu
+    window.addEventListener("load", () => {
+        if (mobileMenu) {
+            setTimeout(() => {
+                mobileMenu.classList.add(
+                    "transition-transform",
+                    "duration-300",
+                );
+            }, 100);
+        }
+    });
+
+    // Navbar Scroll Logic
+    function updateNavbar() {
+        if (!navbar) return;
+
+        // Only update transparency if menu is closed
+        if (!isMenuOpen) {
+            if (window.scrollY > 50) {
+                navbar.classList.add(
+                    "bg-black/90",
+                    "backdrop-blur-md",
+                    "shadow-lg",
+                    "py-2",
+                );
+                navbar.classList.remove("py-4", "bg-transparent");
+            } else {
+                navbar.classList.remove(
+                    "bg-black/90",
+                    "backdrop-blur-md",
+                    "shadow-lg",
+                    "py-2",
+                );
+                navbar.classList.add("py-4", "bg-transparent");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", updateNavbar);
+    updateNavbar(); // Init
+</script>

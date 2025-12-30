@@ -1,0 +1,266 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import heroImage from "../../assets/outlets/galgappe-3d.jpg";
+
+const brand = {
+    name: "Galgappe",
+    tagline: "The Chaat Factory",
+    description:
+        "Vibrant street food favorites reimagined. We capture the bustling energy of the streets with premium hygiene.",
+    whatsapp: "919876543210",
+    menu: [
+        {
+            category: "Puri",
+            items: [
+                { name: "Pani Puri Pack", price: "₹150", desc: "50 pieces" },
+                { name: "Dahi Puri", price: "₹60", desc: "Sweet & tangy" },
+            ],
+        },
+        {
+            category: "Chaat",
+            items: [
+                { name: "Bhel Puri", price: "₹45", desc: "Crunchy mix" },
+                { name: "Pav Bhaji", price: "₹110", desc: "Mumbai special" },
+            ],
+        },
+    ],
+    gallery: [
+        "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80",
+    ],
+};
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    name: "Galgappe",
+    parentOrganization: {
+        "@type": "FoodCourt",
+        name: "Momzland Food Court",
+    },
+    image: "https://momzland.co.in/assets/outlets/galgappe-3d.jpg",
+    description: brand.description,
+    address: {
+        "@type": "PostalAddress",
+        streetAddress: "Momzland Food Court, Near University Road",
+        addressLocality: "Ramanattukara",
+        addressRegion: "Kerala",
+        postalCode: "673633",
+        addressCountry: "IN",
+    },
+    geo: {
+        "@type": "GeoCoordinates",
+        latitude: 11.1786,
+        longitude: 75.8306,
+    },
+    url: "https://momzland.co.in/brands/galgappe",
+    telephone: "+91" + brand.whatsapp,
+    servesCuisine: "Indian, Street Food, Chaat, Pani Puri",
+    priceRange: "₹",
+    menu: "https://momzland.co.in/brands/galgappe",
+});
+---
+
+<Layout
+    title="Galgappe | Best Pani Puri & Chaat in Ramanattukara | Momzland"
+    description="Galgappe at Momzland Food Court. Taste the crispiest Pani Puri, Dahi Puri, and Bhel Puri in Ramanattukara. Authentic street food flavor."
+    keywords="Galgappe, Pani Puri Ramanattukara, Chaat Ramanattukara, Street Food, Dahi Puri, Momzland Food Court"
+    schema={schema}
+    showNavbar={false}
+    showFooter={false}
+>
+    <!-- Custom Back Button -->
+    <a
+        href="/outlet"
+        class="fixed top-6 left-6 z-50 w-12 h-12 bg-[#2E7D32] text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform border-4 border-white"
+    >
+        <i class="fa-solid fa-arrow-left text-xl"></i>
+    </a>
+
+    <!-- Vibrant Street Theme -->
+    <div
+        class="bg-[#FCFDF5] min-h-screen font-sans text-[#1B5E20] overflow-x-hidden"
+    >
+        <!-- Playful Header -->
+        <div
+            class="relative pt-32 pb-24 px-4 bg-[#81C784] rounded-b-[50px] shadow-lg mb-12 overflow-hidden"
+        >
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <Image
+                    src={heroImage}
+                    alt="Galgappe Background"
+                    class="w-full h-full object-cover opacity-40"
+                    fetchpriority="high"
+                />
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-[#81C784]/90 to-[#81C784]/80"
+                >
+                </div>
+            </div>
+
+            <div
+                class="absolute top-0 left-0 w-24 h-24 bg-[#FFEB3B] rounded-full blur-2xl opacity-50 -translate-x-10 -translate-y-10 z-0"
+            >
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-32 h-32 bg-[#4CAF50] rounded-full blur-2xl opacity-50 translate-x-10 translate-y-10 z-0"
+            >
+            </div>
+
+            <div class="text-center relative z-10 text-white">
+                <span
+                    class="bg-white text-[#2E7D32] px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wide shadow-lg transform hover:scale-105 transition-transform inline-block mb-4"
+                    >{brand.tagline}</span
+                >
+                <h1
+                    class="text-7xl md:text-9xl font-black drop-shadow-lg transform -rotate-2 tracking-tight"
+                >
+                    Galgappe!
+                </h1>
+                <p
+                    class="max-w-xl mx-auto mt-8 text-xl font-medium bg-[#2E7D32]/30 p-6 rounded-2xl backdrop-blur-md border border-white/20 shadow-xl"
+                >
+                    {brand.description}
+                </p>
+            </div>
+        </div>
+
+        <!-- Order Section -->
+        <section class="container mx-auto px-4 max-w-4xl pb-20">
+            <div
+                class="bg-[#FFF9C4] p-10 md:p-16 rounded-[40px] shadow-xl border-dashed border-4 border-[#FBC02D] text-center relative overflow-hidden group"
+            >
+                <div
+                    class="absolute -left-10 top-1/2 w-24 h-24 bg-[#81C784] rounded-full opacity-50 blur-xl"
+                >
+                </div>
+                <div
+                    class="absolute -right-10 top-1/2 w-24 h-24 bg-[#FFEB3B] rounded-full opacity-50 blur-xl"
+                >
+                </div>
+
+                <h2
+                    class="text-4xl md:text-6xl font-black text-[#2E7D32] mb-6 transform -rotate-1 relative z-10"
+                >
+                    Chatpata Cravings?
+                </h2>
+                <p class="text-xl font-bold text-[#558B2F] mb-10 relative z-10">
+                    Get the street food party delivered to your door!
+                </p>
+
+                <a
+                    href={`https://wa.me/${brand.whatsapp}`}
+                    target="_blank"
+                    class="inline-flex items-center gap-3 bg-[#4CAF50] text-white px-8 py-4 rounded-full font-black text-xl shadow-[0_8px_0_rgb(27,94,32)] hover:shadow-[0_4px_0_rgb(27,94,32)] hover:translate-y-1 transition-all relative z-10 group/btn"
+                >
+                    Order Now <i
+                        class="fa-solid fa-motorcycle group-hover/btn:translate-x-2 transition-transform"
+                    ></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Masonry Gallery -->
+        <div class="columns-2 md:columns-3 gap-4 px-4 pb-24">
+            {
+                brand.gallery.map((img) => (
+                    <div class="mb-4 break-inside-avoid rounded-2xl overflow-hidden shadow-lg border-2 border-white">
+                        <img
+                            src={img}
+                            class="w-full h-auto hover:scale-105 transition-transform duration-300"
+                            alt="Chaat"
+                        />
+                    </div>
+                ))
+            }
+        </div>
+
+        <!-- Brand Footer -->
+        <footer class="bg-[#1B5E20] text-[#E8F5E9] py-16 px-4">
+            <div
+                class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl"
+            >
+                <!-- Location -->
+                <div>
+                    <h3 class="text-2xl font-black text-[#FFEB3B] mb-6">
+                        Chaat Street
+                    </h3>
+                    <p class="leading-relaxed mb-4">
+                        Level 2, Momzland Food Court<br />
+                        City Center Mall<br />
+                        Mangalore, Karnataka 575001
+                    </p>
+                    <a
+                        href="https://maps.google.com"
+                        target="_blank"
+                        class="text-white hover:text-[#FFEB3B] transition-colors flex items-center gap-2"
+                    >
+                        <i class="fa-solid fa-map-location-dot"></i> Get Directions
+                    </a>
+                </div>
+
+                <!-- Hours & Contact -->
+                <div>
+                    <h3 class="text-2xl font-black text-[#FFEB3B] mb-6">
+                        Open Daily
+                    </h3>
+                    <ul class="space-y-2 mb-6 text-sm font-bold">
+                        <li class="flex justify-between">
+                            <span>Mon - Sun:</span>
+                            <span>10:00 AM - 11:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="pt-4 border-t border-[#FFF]/20">
+                        <p class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-phone text-[#FFEB3B]"></i> +{
+                                brand.whatsapp
+                            }
+                        </p>
+                        <p class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-[#FFEB3B]"></i> hello@galgappe.com
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Concept -->
+                <div class="text-center md:text-right">
+                    <h3
+                        class="text-4xl font-black text-[#FFEB3B] mb-4 transform -rotate-3"
+                    >
+                        Galgappe!
+                    </h3>
+                    <p class="text-sm opacity-80 mb-6">{brand.tagline}</p>
+                    <div class="flex justify-center md:justify-end gap-4">
+                        <a
+                            href="#"
+                            class="w-12 h-12 rounded-full bg-[#FFEB3B] text-[#1B5E20] flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
+                            ><i class="fa-brands fa-instagram text-xl"></i></a
+                        >
+                        <a
+                            href="#"
+                            class="w-12 h-12 rounded-full bg-[#FFEB3B] text-[#1B5E20] flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
+                            ><i class="fa-brands fa-facebook-f text-xl"></i></a
+                        >
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</Layout>
+
+<style>
+    @keyframes bounce-slow {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+    .animate-bounce-slow {
+        animation: bounce-slow 3s infinite;
+    }
+</style>

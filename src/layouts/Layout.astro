@@ -1,0 +1,153 @@
+---
+import "../styles/global.css";
+import OfferBar from "../components/OfferBar.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    title: string;
+    description: string;
+    image?: string;
+    type?: string;
+    keywords?: string;
+    schema?: string; // JSON-LD structured data
+    activePage?: "home" | "about" | "outlet";
+    showNavbar?: boolean;
+    showFooter?: boolean;
+}
+
+const {
+    title,
+    description,
+    image = "/og-image.jpg",
+    type = "website",
+    keywords = "Momzland, Food Court, Ramanattukara, Restaurant, Dining, Takeaway",
+    schema,
+    activePage,
+    showNavbar = true,
+    showFooter = true,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+    <!-- ... head content remains same ... -->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <meta name="generator" content={Astro.generator} />
+
+        <!-- Content Security Policy -->
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="
+                default-src 'self';
+                script-src 'self' 'unsafe-inline' 'unsafe-eval';
+                style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+                font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+                img-src 'self' data: https://images.unsplash.com https://images.pexels.com;
+                frame-src 'self' https://www.google.com;
+                connect-src 'self';
+            "
+        />
+
+        <!-- SEO & Open Graph -->
+        <meta property="og:type" content={type} />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, Astro.url)} />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+        {schema && <script type="application/ld+json" set:html={schema} />}
+
+        <link rel="canonical" href={Astro.url} />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- FontAwesome (Optimized Loading) -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+            media="print"
+            onload="this.media='all'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            />
+        </noscript>
+
+        <title>{title}</title>
+    </head>
+    <body
+        class="bg-stone-50 font-sans text-stone-800 antialiased overflow-x-hidden flex flex-col min-h-screen"
+    >
+        <!-- <OfferBar /> -->
+        {showNavbar && <Navbar activePage={activePage} />}
+
+        <slot />
+
+        {
+            showFooter && (
+                <Footer
+                    description={
+                        activePage === "home"
+                            ? "Experience a galaxy of flavors at Momzland Food Court. 7 unique premium outlets under one roof, open late until 2:00 AM."
+                            : undefined
+                    }
+                />
+            )
+        }
+
+        <!-- Back to Top Button -->
+        <button
+            id="backToTop"
+            class="fixed bottom-6 right-6 bg-brand-orange hover:bg-orange-700 text-white w-12 h-12 rounded-full shadow-lg z-40 flex items-center justify-center transition-colors"
+        >
+            <Icon name="fa6-solid:arrow-up" />
+        </button>
+
+        <script>
+            // Back to top logic
+            const backToTopBtn = document.getElementById("backToTop");
+
+            function updateBackToTop() {
+                if (!backToTopBtn) return;
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add("show");
+                } else {
+                    backToTopBtn.classList.remove("show");
+                }
+            }
+
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener("click", () => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+            }
+
+            window.addEventListener("scroll", updateBackToTop);
+        </script>
+    </body>
+</html>

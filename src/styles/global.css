@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+    --color-brand-orange: #FF956B;
+    --color-brand-pink: #E04E8B;
+    --color-brand-dark: #1C1917;
+    --color-brand-light: #FFF7ED;
+    --color-brand-gray: #44403C;
+
+    --font-sans: 'Outfit', sans-serif;
+
+    --animate-marquee: marquee 25s linear infinite;
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+}
+
+/* Custom Styles from index.html */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+}
+
+.gallery-item {
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.75rem;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(224, 78, 139, 0.9), rgba(255, 149, 107, 0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+#backToTop {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
