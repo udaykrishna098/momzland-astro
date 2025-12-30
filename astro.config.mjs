@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 import icon from "astro-icon";
 
 export default defineConfig({
-  site: 'https://momzland.co.in',
+  site: 'https://momzland-astro.vercel.app',
   vite: {
     plugins: [tailwindcss()]
   },
