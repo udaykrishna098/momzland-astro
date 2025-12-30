@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://momzland.co.in/sitemap-index.xml
+Sitemap: https://momzland-astro.vercel.app/sitemap-index.xml
